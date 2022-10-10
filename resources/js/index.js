@@ -1,7 +1,9 @@
 const nameInput = document.getElementById("my-name-input");
 const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
+const saveButton = document.getElementById("save-button");
 const chatBox = document.getElementById("chat");
+const nameSpan = document.getElementById("name-span");
 const serverURL = 'https://it3049c-chat-application.herokuapp.com/messages';
 
 updateMessagesInChatBox();
@@ -27,7 +29,7 @@ function formatMessage(message, nameInput) {
     const time = new Date(message.timestamp);
     const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
 
-    if (nameInput === message.sender) {
+    if (localStorage.getItem('username') === message.sender) {
         return `
         <div class="mine messages">
             <div class="message">
@@ -68,11 +70,20 @@ function sendMessages(username, text) {
   });
 }
 
+function saveUserName() {
+    localStorage.setItem('username', nameInput.value);
+    myMessage.removeAttribute('disabled');
+    sendButton.removeAttribute('disabled');
+    nameSpan.innerText = "Sending messages as: " + localStorage.getItem('username');
+}
+
 sendButton.addEventListener("click", function(sendButtonClickEvent) {
   sendButtonClickEvent.preventDefault();
-  const sender = nameInput.value;
+  const sender = localStorage.getItem('username');
   const message = myMessage.value;
 
   sendMessages(sender,message);
   myMessage.value = "";
 });
+
+saveButton.addEventListener("click", saveUserName);

@@ -8,14 +8,10 @@ Instructions to this assignment can be found [here](https://it3049c.github.io/co
 - [x] submit the repository link on Canvas
 
 ## Self-Evaluation:
-20ish, was a lot of copy and paste/duplicating given code and I understand why.
+15 - I feel this is kind of done a little dirty and unsecure
 
 ## Self-Reflection:
-Really liked the formatting on the message text.
+Could have added some more checks to this but I feel this gets the job done.
 
 ### How long it took me to finish this?
-Little over an hour of work time
-
-## Discussion Questions:
-1. What does the bootstrap `display-4` class do?
-Renders a size 4 display heading.
+16 minutes
